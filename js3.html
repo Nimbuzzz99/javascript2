@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<script>
+	//------3------//
+	console.log("sharoon s".split(" "));
+
+
+
+	//----5-----//
+	var abbr = "sharoon poojary".split(" ");
+	console(abbr[0]+" "+abbr[1].charAt(0));
+
+
+
+	//------6------//
+	protect_email = function (user_email) {
+		var avg, splitted, part1, part2;
+		splitted = user_email.split("@");
+		part1 = splitted[0];
+		avg = part1.length / 2;
+		part1 = part1.substring(0, (part1.length - avg));
+		part2 = splitted[1];
+		return part1 + "...@" + part2;
+	};
+
+	console.log(protect_email("harbhajan_singh@example.com"));
+
+
+	//------7------//
+	function string_parameterize (str) {
+		var s = str.toLowerCase();
+		s = s.split(' ').join('-');
+		return s
+	}
+	console.log(string_parameterize("Robin Singh from USA."));
+
+
+
+	//---------10----//
+	swapcase = function swapcase(str) {
+		return str.replace(/([a-z]+)|([A-Z]+)/g, function(match, chr) {
+			return chr ? match.toUpperCase() : match.toLowerCase();
+		});
+	}
+	console.log(swapcase('AaBbc'));
+
+
+
+	//---12----//
+	function uncamelize(str, separator) {
+  // Assume default separator is a single space.
+  if(typeof(separator) == "undefined") {
+  	separator = " ";
+  }
+  // Replace all capital letters by separator followed by lowercase one
+  var str = str.replace(/[A-Z]/g, function (letter) 
+  {
+  	return separator + letter.toLowerCase();
+  });
+  // Remove first separator
+  return str.replace("/^" + separator + "/", '');
+}
+console.log(uncamelize('helloWorld'));
+console.log(uncamelize('helloWorld','-'));
+console.log(uncamelize('helloWorld','_'));
+
+
+
+   //------13-----//
+   repeat = function repeat(str, count) {
+   	if(typeof(count) == "undefined") {
+   		count =1;
+   	}
+   	return count < 1 ? '' : new Array(count + 1).join(str);
+   }
+   console.log(repeat('Ha!'));
+   console.log(repeat('Ha!',2));
+   console.log(repeat('Ha!',3));
+
+
+
+   //----15-----//
+   humanize_format = function humanize(num) {
+   	if(typeof(num) == "undefined") return;
+   	if(num % 100 >= 11 && num % 100 <= 13)
+   		return num + "th";
+
+   	switch(num % 10) {
+   		case 1: return num + "st";
+   		case 2: return num + "nd";
+   		case 3: return num + "rd";
+   	}
+   	return num + "th";
+   }
+   console.log(humanize_format());  
+   console.log(humanize_format(1));  
+   console.log(humanize_format(8));  
+   console.log(humanize_format(301));  
+   console.log(humanize_format(402));
+
+
+
+
+   //-------16----//
+   text_truncate = function(str, length, ending) {
+   	if (length == null) {
+   		length = 100;
+   	}
+   	if (ending == null) {
+   		ending = '...';
+   	}
+   	if (str.length > length) {
+   		return str.substring(0, length - ending.length) + ending;
+   	} else {
+   		return str;
+   	}
+   };
+   console.log(text_truncate('We are doing JS string exercises.'))
+   console.log(text_truncate('We are doing JS string exercises.',19))
+   console.log(text_truncate('We are doing JS string exercises.',15,'!!'))
+
+
+
+   //-----18----//
+   function count(main_str, sub_str) 
+   {
+   	main_str += '';
+   	sub_str += '';
+
+   	if (sub_str.length <= 0) 
+   	{
+   		return main_str.length + 1;
+   	}
+
+   	subStr = sub_str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+   	return (main_str.match(new RegExp(subStr, 'gi')) || []).length;
+   }
+
+   console.log(count("The quick brown fox jumps over the lazy dog", 'the'));
+   console.log(count("The quick brown fox jumps over the lazy dog", 'fox',false));
+
+
+
+   //----23----//
+   function strip(str) {
+   	return str.replace(/^\s+|\s+$/g, '');
+   }
+
+   console.log(strip('w3resource '));
+   console.log(strip(' w3resource'));
+   console.log(strip(' w3resource  '));
+
+
+
+   //----27----//
+   function ascii_to_hexa(str)
+   {
+   	var arr1 = [];
+   	for (var n = 0, l = str.length; n < l; n ++) 
+   	{
+   		var hex = Number(str.charCodeAt(n)).toString(16);
+   		arr1.push(hex);
+   	}
+   	return arr1.join('');
+   }
+
+   console.log(ascii_to_hexa('12'));
+   console.log(ascii_to_hexa('100'));
+
+
+
+   //--31--//
+   function escape_html(str) {
+
+   	if ((str===null) || (str===''))
+   		return false;
+   	else
+   		str = str.toString();
+
+   	var map = {
+   		'&': '&amp;',
+   		'<': '&lt;',
+   		'>': '&gt;',
+   		'"': '&quot;',
+   		"'": '&#039;'
+   	};
+
+   	return str.replace(/[&<>"']/g, function(m) { return map[m]; });
+   }
+   console.log(escape_html('PHP & MySQL'));
+   console.log(escape_html('3 > 2'));
+
+
+
+   //----33-----//
+   function remove_non_word (str) {
+   	if ((str===null) || (str===''))
+   		return false;
+   	else
+   		str = str.toString();
+
+   	var PATTERN = /[^\x20\x2D0-9A-Z\x5Fa-z\xC0-\xD6\xD8-\xF6\xF8-\xFF]/g;
+
+   	return str.replace(PATTERN, '');
+   }
+   console.log(remove_non_word('PHP ~!@#$%^&*()+`-={}[]|\\:";\'/?><., MySQL'));
+
+
+
+   //----35----//
+   function strip_html_tags(str)
+   {
+   	if ((str===null) || (str===''))
+   		return false;
+   	else
+   		str = str.toString();
+   	return str.replace(/<[^>]*>/g, '');
+   }
+
+   console.log(strip_html_tags('PHP Exercises<p>'));
+
+
+
+
+  //----38----//
+  function case_insensitive_search(str, search_str)
+  {
+  	var result= str.search(new RegExp(search_str, "i"));
+
+  	if (result>0)
+  		return 'Matched';
+  	else
+  		return 'Not Matched';  
+  }
+
+  console.log(case_insensitive_search('JavaScript Exercises', 'exercises'));
+
+  console.log(case_insensitive_search('JavaScript Exercises', 'Exercises'));
+
+  console.log(case_insensitive_search('JavaScript Exercises', 'Exercisess'));
+
+
+
+  //-------48-----//
+  function successor(str){
+var last = str.charCodeAt(str.length-1) + 1;
+var res = String.fromCharCode(last);
+var str = str.substring(0, str.length -1);
+return str + res;
+};
+console.log(successor('abcd'));
+console.log(successor('3456'));
+
+</script>
+</body>
+</html>

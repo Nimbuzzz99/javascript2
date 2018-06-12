@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<script>
+		function ascend(names){
+			var temp
+			for (var i = 0; i < names.length; i++) 
+			{
+				for (var j = i + 1; j < names.length; j++) 
+				{
+					if ((names[i] > names[j])) 
+					{
+						temp = names[i];
+						names[i] = names[j];
+						names[j] = temp;
+					}
+				}
+			}
+
+			return names
+		}
+
+
+
+		function descend(names){
+			var temp
+			for (var i = 0; i < names.length; i++) 
+			{
+				for (var j = i + 1; j < names.length; j++) 
+				{
+					if ((names[i] < names[j])) 
+					{
+						temp = names[i];
+						names[i] = names[j];
+						names[j] = temp;
+					}
+				}
+			}
+
+			return names
+		}
+
+
+		var names = ['boo','vooo','baaa','llooo']
+		console.log('The names in ascending order \n'+ ascend(names))
+		console.log('The names in dscending order \n'+ descend(names))
+	</script>
+</body>
+</html>

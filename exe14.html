@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var myObj =
+		[{'name':'Saurabh', 'age': 30, 'occupation': "Team Leader"},
+		{'name':'Anupriya', 'age': 32, 'occupation': "Team Leader"},
+		{'name':'Kalyani', 'age': 25, 'occupation': "Programmer"},
+		{'name':'Damodaran', 'age': 27, 'occupation': "Programmer"},
+		{'name':'Krishnakath', 'age': 22, 'occupation': "Programmer"},
+		{'name':'Venketraman', 'age': 28, 'occupation': "Programmer"}];
+
+		for(var i=0;i<myObj.length;i++)
+		{
+			if(myObj[i].occupation==="Programmer")
+				console.log(myObj[i])
+		}
+
+		var temp
+		for(var i=0;i<myObj.length;i++)
+		{
+			
+			for(var j=i+1;j<myObj.length;j++)
+			{
+				if(myObj[i].age>myObj[j].age)
+				{
+					temp=myObj[j].age
+					myObj[j].age=myObj[i].age
+					myObj[i].age=temp
+				}
+			}
+		}
+		for( i=0;i<myObj.length;i++)
+		{
+			console.log(myObj[i])
+		}
+	</script>
+
+</body>
+</html>

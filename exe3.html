@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+	var input=prompt("Enter a number:")
+		var str=input.toString(), res=[str[0]];
+		for(var i=1;i<str.length;i++)
+		{
+			if((str[i-1]%2==0)&&(str[i]%2==0))
+			{
+				res.push('-',str[i])
+			}
+			else
+				res.push(str[i])
+		}
+
+		console.log(res.join(''))
+</script>
+</body>
+</html>

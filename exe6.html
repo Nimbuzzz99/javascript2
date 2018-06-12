@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+    function diff(a , b){
+    	var res = []
+    	if(a === null && b===null){
+    		return 0
+    	}
+    	else if(a === null){
+    		return b
+    	}
+
+    	else if (b === null){
+    		return a
+    	}
+
+
+    	if(a.length > b.length){
+    		for(var i=0;i<b.length;i++){
+    			res.push(Math.abs(a[i]-b[i]))
+    		}
+    	}
+
+
+    	else {
+    		for(var i=0;i<a.length;i++){
+    			res.push(Math.abs(a[i]-b[i]))
+    		}
+    	}
+
+    	return res
+    }
+
+
+	var a = [2,3,4,5,56];
+	var b = [5,3,4,7,8];
+	console.log(diff(a,b))
+</script>
+</body>
+</html>
